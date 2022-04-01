@@ -1,8 +1,39 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Karla:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Karla:wght@700&display=swap");
+
+/* Global Variables */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background-color: pink;
+    font-family: "Karla", sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 20px;
+    background: linear-gradient(90deg, rgb(103,34,128), rgb(166,38,211));
+    color: rgb(255, 255, 255);
+}
+
+.header--logo {
+    height: 100%;
+    margin-right: 6px;
+}
+
+.header--title {
+    font-size: 1.25rem;
+    margin-right: auto;
+}
+
+.header--text {
+    font-family: "Intel", sans-serif;
+    font-weight: lighter;
+    font-size: .75rem;
 }
