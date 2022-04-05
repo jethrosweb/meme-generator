@@ -60,3 +60,19 @@ export default function Meme() {
         </main>
     )
 }
+
+/* useEffect Quiz:
+
+1. What is a "side effect" in React? What are some examples? 
+A: Anything that React is not handling, i.e., an outside system. For example, API, local storage.  
+
+2. What is NOT a "side effect" in React? Examples? 
+A: Anything that React controls, for example, maintaining state.  
+
+3. When does React run your useEffect function? When does it NOT run the effect function? 
+A: Always runs when the component load and if there are no dependencies, it will run everytime the component is re-rendered. It will not run if a declared dependency is the same between renders. 
+
+4. How would you explain what the "dependecies array" is?
+A: A method for dictating when you want the useEffect function to run. 
+
+*/
