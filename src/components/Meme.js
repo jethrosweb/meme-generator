@@ -1,5 +1,4 @@
 import React from "react"
-import memesData from "../memesData"
 
 export default function Meme() {
 
@@ -9,6 +8,23 @@ export default function Meme() {
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
 
+    const [allMemes, setAllMemes] = React.useState([])
+
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
+    }, [])
+
+    function getMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
+    }
+
     function handleChange(event) {
         const {name, value} = event.target
         setMeme(prevMeme => {
@@ -17,18 +33,6 @@ export default function Meme() {
                 [name]: value
             }
         })
-    }
-
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
-
-    function getMemeImage() {
-        const memesArray = allMemeImages.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        const url = memesArray[randomNumber].url
-        setMeme(prevMeme => ({
-            ...prevMeme,
-            randomImage: url
-        }))
     }
 
     return (
@@ -60,19 +64,3 @@ export default function Meme() {
         </main>
     )
 }
-
-/* useEffect Quiz:
-
-1. What is a "side effect" in React? What are some examples? 
-A: Anything that React is not handling, i.e., an outside system. For example, API, local storage.  
-
-2. What is NOT a "side effect" in React? Examples? 
-A: Anything that React controls, for example, maintaining state.  
-
-3. When does React run your useEffect function? When does it NOT run the effect function? 
-A: Always runs when the component load and if there are no dependencies, it will run everytime the component is re-rendered. It will not run if a declared dependency is the same between renders. 
-
-4. How would you explain what the "dependecies array" is?
-A: A method for dictating when you want the useEffect function to run. 
-
-*/
