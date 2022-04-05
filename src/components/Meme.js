@@ -33,19 +33,21 @@ export default function Meme() {
     )
 }
 
-/* Conditional rendering questions: 
+/* Form Questions: 
 
-1. What is conditional rendering? 
-A: To determine certain outcomes depending on the given conditions. 
+1. In a vanilla JS app, at what point in the form submission process do you gather all the data from the filled-out form? 
+A: When the form is submitted. 
 
-2. When would you use &&? 
-A: When to display something or not display something (e.g. booleans).
+2. In a React app, when do you gather all the data from the filled-out form?
+A: When the component state changes, meaning as soon as an elements value (or checked) is changed. Thus, as the form is being completed. 
 
-3. When would you use a ternary? 
-A: Which of two outcomes to display. 
+3. Which attribute in the form elements (value, name, onChange, etc.) should match the property name being held in state for that input? 
+A: Name.
 
-4. What if you need to decide between 2 options on what to display? 
-A: Use a regular conditional statement (if, if else, or switch).
+4. What's different about saving the data from a checkbox element vs. other form elements? 
+A: It's a boolean so the checked property is used to determine the input not the value property. 
+
+5. How do you watch for a form submit? How can you trigger a form submit? 
+A: Add the onSubmit handler on the form element - typically triggered using a <button> event listener. 
 
 */
-
